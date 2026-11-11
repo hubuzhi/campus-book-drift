@@ -71,6 +71,10 @@ Page({
     this.setData({ keyword: e.detail.value, page: 1 }, () => this.applyFilter())
   },
 
+  onClear() {
+    this.setData({ keyword: '', page: 1 }, () => this.applyFilter())
+  },
+
   onCategory(e) {
     this.setData({ category: e.currentTarget.dataset.cat, page: 1 }, () => this.applyFilter())
   },

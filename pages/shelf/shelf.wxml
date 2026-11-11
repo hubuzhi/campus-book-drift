@@ -1,35 +1,70 @@
 <view class="container">
   <view class="tabs">
     <view class="tab {{tab === 'collect' ? 'active' : ''}}" data-tab="collect" bindtap="switchTab">
-      我的收藏 ({{collected.length}})
+      我的收藏<text class="count">{{collected.length}}</text>
     </view>
     <view class="tab {{tab === 'mine' ? 'active' : ''}}" data-tab="mine" bindtap="switchTab">
-      我发布的 ({{mine.length}})
+      我发布的<text class="count">{{mine.length}}</text>
     </view>
   </view>
 
   <block wx:if="{{tab === 'collect'}}">
-    <view wx:if="{{collected.length === 0}}" class="empty">还没有收藏的书
-去书库逛逛吧</view>
-    <view wx:for="{{collected}}" wx:key="id" class="card item" data-id="{{item.id}}" bindtap="onBookTap">
-      <view class="dot" style="background: {{item.color}}"></view>
+    <view wx:if="{{collected.length === 0}}" class="empty">
+      <view class="empty-icon">📚</view>
+      <view class="empty-text">还没有收藏的书</view>
+      <view class="muted">去书库逛逛，把想读的书加进来</view>
+    </view>
+    <view
+      wx:for="{{collected}}"
+      wx:key="id"
+      class="item"
+      hover-class="item-hover"
+      data-id="{{item.id}}"
+      bindtap="onBookTap">
+      <view class="cover" style="background: linear-gradient(150deg, {{item.color}} 0%, {{item.color}}cc 100%)">
+        <view class="spine"></view>
+        <text class="cover-title">{{item.title}}</text>
+      </view>
       <view class="item-info">
         <view class="item-title">{{item.title}}</view>
         <view class="muted">{{item.author}}</view>
+        <view class="item-bottom">
+          <text class="tag">{{item.category}}</text>
+          <text class="{{item.status === 'available' ? 'ok' : 'out'}}">
+            {{item.status === 'available' ? '可借' : '已借出'}}
+          </text>
+        </view>
       </view>
-      <text class="tag">{{item.status === 'available' ? '可借' : '已借出'}}</text>
     </view>
   </block>
 
   <block wx:else>
-    <view wx:if="{{mine.length === 0}}" class="empty">还没有发布过图书</view>
-    <view wx:for="{{mine}}" wx:key="id" class="card item" data-id="{{item.id}}" bindtap="onBookTap">
-      <view class="dot" style="background: {{item.color}}"></view>
+    <view wx:if="{{mine.length === 0}}" class="empty">
+      <view class="empty-icon">📖</view>
+      <view class="empty-text">还没有发布过图书</view>
+      <view class="muted">把闲置的书分享给同学吧</view>
+    </view>
+    <view
+      wx:for="{{mine}}"
+      wx:key="id"
+      class="item"
+      hover-class="item-hover"
+      data-id="{{item.id}}"
+      bindtap="onBookTap">
+      <view class="cover" style="background: linear-gradient(150deg, {{item.color}} 0%, {{item.color}}cc 100%)">
+        <view class="spine"></view>
+        <text class="cover-title">{{item.title}}</text>
+      </view>
       <view class="item-info">
         <view class="item-title">{{item.title}}</view>
         <view class="muted">{{item.author}}</view>
+        <view class="item-bottom">
+          <text class="tag">{{item.category}}</text>
+          <text class="{{item.status === 'available' ? 'ok' : 'out'}}">
+            {{item.status === 'available' ? '可借' : '已借出'}}
+          </text>
+        </view>
       </view>
-      <text class="tag">{{item.status === 'available' ? '可借' : '已借出'}}</text>
     </view>
   </block>
 </view>

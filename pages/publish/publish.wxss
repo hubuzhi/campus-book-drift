@@ -1,25 +1,39 @@
 .field {
-  margin-bottom: 32rpx;
+  margin-bottom: 34rpx;
 }
 
 .label {
   display: block;
   font-size: 26rpx;
-  color: #888;
-  margin-bottom: 12rpx;
+  color: #6b7873;
+  margin-bottom: 14rpx;
+}
+
+.req {
+  color: #d0553f;
+  margin-left: 4rpx;
+}
+
+.counter {
+  font-size: 22rpx;
+  color: #b3bcb8;
 }
 
 .input {
-  background: #f7f8fa;
-  border-radius: 10rpx;
-  padding: 20rpx 24rpx;
+  background: #f5f7f6;
+  border-radius: 12rpx;
+  padding: 22rpx 24rpx;
   font-size: 28rpx;
 }
 
+.ph {
+  color: #b3bcb8;
+}
+
 .textarea {
-  background: #f7f8fa;
-  border-radius: 10rpx;
-  padding: 20rpx 24rpx;
+  background: #f5f7f6;
+  border-radius: 12rpx;
+  padding: 22rpx 24rpx;
   font-size: 28rpx;
   width: 100%;
   height: 180rpx;
@@ -33,27 +47,92 @@
 }
 
 .chip {
-  padding: 12rpx 28rpx;
-  background: #f2f3f5;
+  padding: 14rpx 30rpx;
+  background: #f5f7f6;
   border-radius: 100rpx;
   font-size: 26rpx;
-  color: #666;
+  color: #6b7873;
+  border: 2rpx solid transparent;
 }
 
 .chip.active {
-  background: #2d7d5a;
-  color: #fff;
+  background: #eaf6f0;
+  color: #2d7d5a;
+  border-color: #bfe0cf;
+  font-weight: 600;
 }
 
 .color-dot {
-  width: 56rpx;
-  height: 56rpx;
+  width: 60rpx;
+  height: 60rpx;
   border-radius: 50%;
   border: 4rpx solid transparent;
+  box-sizing: border-box;
 }
 
 .color-dot.selected {
-  border-color: #2c2c2c;
+  border-color: #22302b;
+  box-shadow: 0 0 0 4rpx rgba(255, 255, 255, 1);
+}
+
+.preview {
+  margin-top: 8rpx;
+}
+
+.preview-label {
+  margin-bottom: 12rpx;
+}
+
+.preview-card {
+  display: flex;
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 22rpx;
+  box-shadow: 0 4rpx 20rpx rgba(34, 48, 43, 0.05);
+}
+
+.preview-cover {
+  position: relative;
+  width: 150rpx;
+  height: 204rpx;
+  border-radius: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14rpx 16rpx 14rpx 26rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.preview-spine {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 12rpx;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.preview-title {
+  color: #fff;
+  font-size: 24rpx;
+  text-align: center;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.preview-info {
+  flex: 1;
+  margin-left: 24rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.preview-name {
+  font-size: 31rpx;
+  font-weight: 600;
+  margin-bottom: 8rpx;
 }
 
 .submit {

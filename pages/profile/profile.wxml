@@ -1,32 +1,44 @@
 <view class="container">
-  <view class="card header">
+  <view class="profile-card">
     <view class="avatar">{{avatarText}}</view>
     <view class="user-info">
       <view class="nickname">{{user ? user.nickname : '未登录'}}</view>
-      <view class="muted">{{user ? '已登录（本地模拟）' : '登录后可发布与借阅图书'}}</view>
+      <view class="sub">{{user ? '已登录 · 本地模拟账号' : '登录后可发布与借阅图书'}}</view>
     </view>
-    <view wx:if="{{!user}}" class="btn-primary login-btn" bindtap="onLogin">登录</view>
-    <view wx:else class="btn-ghost login-btn" bindtap="onLogout">退出</view>
+    <view wx:if="{{!user}}" class="btn-login" bindtap="onLogin">登录</view>
+    <view wx:else class="btn-logout" bindtap="onLogout">退出</view>
   </view>
 
-  <view class="card stats">
+  <view class="stats">
     <view class="stat">
       <view class="num">{{stats.total}}</view>
-      <view class="muted">书库总量</view>
+      <view class="stat-label">书库总量</view>
     </view>
+    <view class="divider"></view>
     <view class="stat">
       <view class="num">{{stats.collected}}</view>
-      <view class="muted">我的收藏</view>
+      <view class="stat-label">我的收藏</view>
     </view>
+    <view class="divider"></view>
     <view class="stat">
       <view class="num">{{stats.mine}}</view>
-      <view class="muted">我发布的</view>
+      <view class="stat-label">我发布的</view>
     </view>
   </view>
 
   <view class="card about">
-    <view class="about-title">关于</view>
-    <view class="muted">校园图书漂流小程序 · 原生小程序 + 本地数据层</view>
-    <view class="muted">支持图书浏览、搜索分类、发布、收藏与借阅状态流转</view>
+    <view class="about-title">关于本项目</view>
+    <view class="about-row">
+      <text class="about-k">技术栈</text>
+      <text class="about-v">微信原生小程序（WXML / WXSS / JS）</text>
+    </view>
+    <view class="about-row">
+      <text class="about-k">数据层</text>
+      <text class="about-v">本地存储封装，可切换为云开发</text>
+    </view>
+    <view class="about-row">
+      <text class="about-k">功能</text>
+      <text class="about-v">浏览、搜索、发布、收藏、借阅流转</text>
+    </view>
   </view>
 </view>

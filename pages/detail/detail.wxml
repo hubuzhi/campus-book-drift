@@ -1,15 +1,22 @@
 <view class="container" wx:if="{{book}}">
-  <view class="hero" style="background: {{book.color}}">
-    <text class="hero-title">{{book.title}}</text>
-    <text class="hero-author">{{book.author}}</text>
+  <view class="hero" style="background: linear-gradient(150deg, {{book.color}} 0%, {{book.color}}cc 100%)">
+    <view class="hero-spine"></view>
+    <view class="hero-body">
+      <text class="hero-title">{{book.title}}</text>
+      <text class="hero-author">{{book.author}}</text>
+    </view>
+    <view class="hero-sheen"></view>
   </view>
 
   <view class="card">
-    <view class="row between">
+    <view class="row between head">
       <text class="tag">{{book.category}}</text>
-      <text class="{{book.status === 'available' ? 'ok' : 'out'}}">
-        {{book.status === 'available' ? '可借' : '已借出'}}
-      </text>
+      <view class="status">
+        <view class="dot {{book.status === 'available' ? 'ok' : 'out'}}"></view>
+        <text class="{{book.status === 'available' ? 'ok-text' : 'out-text'}}">
+          {{book.status === 'available' ? '可借' : '已借出'}}
+        </text>
+      </view>
     </view>
 
     <view class="desc-title">简介</view>
@@ -17,7 +24,10 @@
 
     <view class="row between info-row">
       <text class="muted">提供者</text>
-      <text>{{book.owner}}</text>
+      <view class="owner">
+        <view class="avatar">{{book.owner}}</view>
+        <text>{{book.owner}}</text>
+      </view>
     </view>
   </view>
 
@@ -29,4 +39,22 @@
       {{book.status === 'available' ? '我要借阅' : '归还图书'}}
     </view>
   </view>
+
+  <block wx:if="{{related.length > 0}}">
+    <view class="section-title">同类图书</view>
+    <view class="related">
+      <view
+        wx:for="{{related}}"
+        wx:key="id"
+        class="rel-item"
+        data-id="{{item.id}}"
+        bindtap="onRelatedTap">
+        <view class="rel-cover" style="background: {{item.color}}">
+          <text class="rel-title">{{item.title}}</text>
+        </view>
+        <view class="rel-name">{{item.title}}</view>
+        <view class="muted">{{item.author}}</view>
+      </view>
+    </view>
+  </block>
 </view>

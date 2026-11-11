@@ -1,9 +1,12 @@
 <view class="container">
   <view class="search-bar">
-    <input class="search-input" placeholder="搜索书名或作者" value="{{keyword}}" bindinput="onSearch" />
+    <view class="search-icon">🔍</view>
+    <input class="search-input" placeholder="搜索书名或作者" placeholder-class="ph"
+           value="{{keyword}}" bindinput="onSearch" confirm-type="search" />
+    <view wx:if="{{keyword}}" class="clear-btn" bindtap="onClear">✕</view>
   </view>
 
-  <scroll-view class="cats" scroll-x="true" enable-flex="true">
+  <scroll-view class="cats" scroll-x="true" enable-flex="true" show-scrollbar="false">
     <view
       wx:for="{{categories}}"
       wx:key="*this"
@@ -12,14 +15,20 @@
       bindtap="onCategory">{{item}}</view>
   </scroll-view>
 
-  <view wx:if="{{list.length === 0}}" class="empty">还没有符合条件的书</view>
+  <view wx:if="{{list.length === 0}}" class="empty">
+    <view class="empty-icon">🔍</view>
+    <view class="empty-text">没有找到符合条件的书</view>
+    <view class="muted">换个关键词或分类试试</view>
+  </view>
 
-  <book-card
-    wx:for="{{list}}"
-    wx:key="id"
-    book="{{item}}"
-    bind:booktap="onBookTap" />
+  <block wx:else>
+    <book-card
+      wx:for="{{list}}"
+      wx:key="id"
+      book="{{item}}"
+      bind:booktap="onBookTap" />
 
-  <view wx:if="{{hasMore}}" class="load-more muted">上拉加载更多</view>
-  <view wx:if="{{!hasMore && list.length > 0}}" class="load-more muted">— 已经到底啦 —</view>
+    <view wx:if="{{hasMore}}" class="load-more muted">上拉加载更多</view>
+    <view wx:if="{{!hasMore}}" class="load-more muted">— 共 {{list.length}} 本 —</view>
+  </block>
 </view>

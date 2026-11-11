@@ -2,6 +2,7 @@
 const store = require('../../utils/store.js')
 
 const COLORS = ['#2d7d5a', '#c0392b', '#8e44ad', '#d68910', '#1f618d', '#117a65']
+const DESC_MAX = 120
 
 Page({
   data: {
@@ -10,15 +11,28 @@ Page({
     category: '计算机',
     categories: ['计算机', '文学', '历史', '其他'],
     desc: '',
+    descLen: 0,
+    descMax: DESC_MAX,
     color: COLORS[0],
-    colors: COLORS
+    colors: COLORS,
+    canSubmit: false
   },
 
   onInput(e) {
     const field = e.currentTarget.dataset.field
     const obj = {}
     obj[field] = e.detail.value
-    this.setData(obj)
+    if (field === 'desc') {
+      obj.descLen = e.detail.value.length
+    }
+    this.setData(obj, () => this.checkSubmit())
+  },
+
+  checkSubmit() {
+    const d = this.data
+    this.setData({
+      canSubmit: !!d.title.trim() && !!d.author.trim()
+    })
   },
 
   onPickCategory(e) {
@@ -60,7 +74,7 @@ Page({
     })
 
     wx.showToast({ title: '发布成功', icon: 'success' })
-    this.setData({ title: '', author: '', desc: '' })
+    this.setData({ title: '', author: '', desc: '', descLen: 0, canSubmit: false })
     setTimeout(function () {
       wx.switchTab({ url: '/pages/index/index' })
     }, 800)

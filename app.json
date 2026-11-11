@@ -21,19 +21,27 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "书库"
+        "text": "书库",
+        "iconPath": "images/tabbar/home.png",
+        "selectedIconPath": "images/tabbar/home-active.png"
       },
       {
         "pagePath": "pages/publish/publish",
-        "text": "发布"
+        "text": "发布",
+        "iconPath": "images/tabbar/publish.png",
+        "selectedIconPath": "images/tabbar/publish-active.png"
       },
       {
         "pagePath": "pages/shelf/shelf",
-        "text": "书架"
+        "text": "书架",
+        "iconPath": "images/tabbar/shelf.png",
+        "selectedIconPath": "images/tabbar/shelf-active.png"
       },
       {
         "pagePath": "pages/profile/profile",
-        "text": "我的"
+        "text": "我的",
+        "iconPath": "images/tabbar/me.png",
+        "selectedIconPath": "images/tabbar/me-active.png"
       }
     ]
   },

@@ -1,15 +1,21 @@
-<view class="book-card" bindtap="onTap">
-  <view class="cover" style="background: {{book.color}}">
+<view class="book-card" hover-class="card-hover" hover-stay-time="80" bindtap="onTap">
+  <view class="cover" style="background: linear-gradient(150deg, {{book.color}} 0%, {{book.color}}cc 100%)">
+    <view class="spine"></view>
     <text class="cover-title">{{book.title}}</text>
+    <view class="cover-sheen"></view>
   </view>
+
   <view class="info">
     <view class="title">{{book.title}}</view>
     <view class="author">{{book.author}}</view>
     <view class="row between meta">
       <text class="tag">{{book.category}}</text>
-      <text class="status {{book.status === 'available' ? 'ok' : 'out'}}">
-        {{book.status === 'available' ? '可借' : '已借出'}}
-      </text>
+      <view class="status">
+        <view class="dot {{book.status === 'available' ? 'ok' : 'out'}}"></view>
+        <text class="{{book.status === 'available' ? 'ok-text' : 'out-text'}}">
+          {{book.status === 'available' ? '可借' : '已借出'}}
+        </text>
+      </view>
     </view>
   </view>
 </view>
