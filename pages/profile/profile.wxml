@@ -1,6 +1,6 @@
 <view class="container">
   <view class="card header">
-    <view class="avatar">{{user ? user.nickname[0] : '?'}}</view>
+    <view class="avatar">{{avatarText}}</view>
     <view class="user-info">
       <view class="nickname">{{user ? user.nickname : '未登录'}}</view>
       <view class="muted">{{user ? '已登录（本地模拟）' : '登录后可发布与借阅图书'}}</view>

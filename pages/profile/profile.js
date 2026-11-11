@@ -4,6 +4,7 @@ const store = require('../../utils/store.js')
 Page({
   data: {
     user: null,
+    avatarText: '?',
     stats: { total: 0, collected: 0, mine: 0 }
   },
 
@@ -16,6 +17,7 @@ Page({
     const books = store.getBooks()
     this.setData({
       user: user,
+      avatarText: user && user.nickname ? user.nickname.charAt(0) : '?',
       stats: {
         total: books.length,
         collected: store.getCollectedBooks().length,
