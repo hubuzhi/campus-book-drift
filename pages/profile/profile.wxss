@@ -1,0 +1,58 @@
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background: #2d7d5a;
+  color: #fff;
+  font-size: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-info {
+  flex: 1;
+  margin-left: 24rpx;
+}
+
+.nickname {
+  font-size: 32rpx;
+  font-weight: 600;
+}
+
+.login-btn {
+  width: 140rpx;
+  padding: 14rpx 0;
+  font-size: 26rpx;
+}
+
+.stats {
+  display: flex;
+  margin-top: 24rpx;
+}
+
+.stat {
+  flex: 1;
+  text-align: center;
+}
+
+.num {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #2d7d5a;
+}
+
+.about {
+  margin-top: 24rpx;
+}
+
+.about-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-bottom: 12rpx;
+}

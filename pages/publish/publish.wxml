@@ -1,0 +1,44 @@
+<view class="container">
+  <view class="card">
+    <view class="field">
+      <text class="label">书名</text>
+      <input class="input" placeholder="例如：深入理解计算机系统" data-field="title" value="{{title}}" bindinput="onInput" />
+    </view>
+    <view class="field">
+      <text class="label">作者</text>
+      <input class="input" placeholder="例如：Randal E. Bryant" data-field="author" value="{{author}}" bindinput="onInput" />
+    </view>
+
+    <view class="field">
+      <text class="label">分类</text>
+      <view class="chips">
+        <view
+          wx:for="{{categories}}"
+          wx:key="*this"
+          class="chip {{category === item ? 'active' : ''}}"
+          data-cat="{{item}}"
+          bindtap="onPickCategory">{{item}}</view>
+      </view>
+    </view>
+
+    <view class="field">
+      <text class="label">封面配色</text>
+      <view class="chips">
+        <view
+          wx:for="{{colors}}"
+          wx:key="*this"
+          class="color-dot {{color === item ? 'selected' : ''}}"
+          style="background: {{item}}"
+          data-color="{{item}}"
+          bindtap="onPickColor"></view>
+      </view>
+    </view>
+
+    <view class="field">
+      <text class="label">简介</text>
+      <textarea class="textarea" placeholder="简单介绍这本书" data-field="desc" value="{{desc}}" bindinput="onInput" />
+    </view>
+  </view>
+
+  <view class="btn-primary submit" bindtap="onSubmit">发布到书库</view>
+</view>

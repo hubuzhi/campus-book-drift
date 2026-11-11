@@ -1,0 +1,35 @@
+.search-bar {
+  margin-bottom: 20rpx;
+}
+
+.search-input {
+  background: #fff;
+  border-radius: 100rpx;
+  padding: 20rpx 32rpx;
+  font-size: 28rpx;
+}
+
+.cats {
+  white-space: nowrap;
+  margin-bottom: 24rpx;
+}
+
+.cat {
+  display: inline-block;
+  padding: 10rpx 28rpx;
+  background: #fff;
+  border-radius: 100rpx;
+  margin-right: 16rpx;
+  font-size: 26rpx;
+  color: #666;
+}
+
+.cat.active {
+  background: #2d7d5a;
+  color: #fff;
+}
+
+.load-more {
+  text-align: center;
+  padding: 30rpx 0;
+}

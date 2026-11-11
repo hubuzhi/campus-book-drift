@@ -1,0 +1,67 @@
+/* 全局样式 */
+page {
+  background: #f5f6f8;
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: #2c2c2c;
+  font-size: 28rpx;
+}
+
+.container {
+  padding: 24rpx;
+  box-sizing: border-box;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+}
+
+.muted {
+  color: #8a8a8a;
+  font-size: 24rpx;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.between {
+  justify-content: space-between;
+}
+
+.tag {
+  display: inline-block;
+  padding: 4rpx 16rpx;
+  border-radius: 100rpx;
+  font-size: 22rpx;
+  background: #eaf5ef;
+  color: #2d7d5a;
+}
+
+.btn-primary {
+  background: #2d7d5a;
+  color: #fff;
+  border-radius: 12rpx;
+  font-size: 30rpx;
+  padding: 22rpx 0;
+  text-align: center;
+}
+
+.btn-ghost {
+  background: #fff;
+  color: #2d7d5a;
+  border: 2rpx solid #2d7d5a;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  padding: 18rpx 0;
+  text-align: center;
+}
+
+.empty {
+  padding: 120rpx 0;
+  text-align: center;
+  color: #9a9a9a;
+}

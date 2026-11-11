@@ -1,0 +1,32 @@
+<view class="container" wx:if="{{book}}">
+  <view class="hero" style="background: {{book.color}}">
+    <text class="hero-title">{{book.title}}</text>
+    <text class="hero-author">{{book.author}}</text>
+  </view>
+
+  <view class="card">
+    <view class="row between">
+      <text class="tag">{{book.category}}</text>
+      <text class="{{book.status === 'available' ? 'ok' : 'out'}}">
+        {{book.status === 'available' ? '可借' : '已借出'}}
+      </text>
+    </view>
+
+    <view class="desc-title">简介</view>
+    <view class="desc">{{book.desc}}</view>
+
+    <view class="row between info-row">
+      <text class="muted">提供者</text>
+      <text>{{book.owner}}</text>
+    </view>
+  </view>
+
+  <view class="actions">
+    <view class="btn-ghost flex1" bindtap="onCollect">
+      {{collected ? '已在书架' : '加入书架'}}
+    </view>
+    <view class="btn-primary flex1" bindtap="onToggleStatus">
+      {{book.status === 'available' ? '我要借阅' : '归还图书'}}
+    </view>
+  </view>
+</view>
